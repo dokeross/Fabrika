@@ -1,0 +1,48 @@
+.footer {
+    padding-top: 2%;
+    background: linear-gradient(to bottom, #00000a, #14021e);
+    min-height: 175px;
+    position: relative;
+}
+
+.list {
+    list-style: none;
+    &__link {
+        color: #ffffff;
+        text-decoration: none;
+        &:hover {
+            color: #820333;
+            text-decoration: none;
+        }
+    }   
+}
+
+.footerLogo {
+    height: 111px;
+    margin: 0 auto;
+    display: block;
+}
+
+.socialNetwork {
+    text-decoration: none;
+    display: inline-flex;
+    &__link {
+        width: 38px;
+        height: 38px;
+        margin-left: 10px;
+        margin-top: 40px;
+        &:hover {
+            opacity: .7;
+        }
+        
+        &_vk {
+            background: url(../img/footer/vk.png) center no-repeat;
+        }
+        &_insta {
+            background: url(../img/footer/insta.png) center no-repeat;
+        }
+        &_ym {
+            background: url(../img/footer/ym.png) center no-repeat;
+        }
+    }
+}

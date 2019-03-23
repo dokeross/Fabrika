@@ -1,0 +1,55 @@
+.contentCatalog {
+    z-index: 1;
+}
+
+.imageCatalog {
+    background: url(../img/catalog/imageCatalog.png) center no-repeat;
+    background-size: cover;
+}
+
+.mainCatalog {
+    padding-top: 70px;
+    &__img {
+        max-width: 100%;
+
+    }
+    &__title {
+        font-size: 16px;
+        color: #ffffff;
+        padding-bottom: 15px;
+        margin: 0;
+    }
+}
+
+.main__bg_cl {
+    background-color: #e8e8e8;
+    position: relative;
+    padding: 30px 0;
+    overflow: hidden;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 61%;
+        height: 40%;
+        top: 0;
+        right: 0;
+        background-color: #d9cfd6;
+    }
+    &:before {
+        content: '';
+        width: 55%;
+        height: 54%;
+        position: absolute;
+        border-top: 412px solid transparent;
+        border-left: 730px solid #d9cfd6;
+        border-bottom: 560px solid transparent;
+        bottom: -10%;
+        left: 0;
+    }
+}
+
+
+// paginator
+.current {
+    padding: 0 12px;
+}

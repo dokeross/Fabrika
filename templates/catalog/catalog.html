@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'imageCatalog.html' %}
+<main class="main__bg_cl">
+    <div class="container">
+        <div class="row">
+            {% include 'asideMenu.html' %}
+            <div class="col contentCatalog">
+                <div class="contentItem__h3">
+                    {% for category in main_category %}
+                        {{ category.product.category }}
+                    {% endfor %}
+                    {% for category in category %}
+                        {{category.product.category}}
+                        {{category.product.subcategories}}                    
+                    {% endfor %}
+                </div>
+                <!-- <div class="crumbs">
+                    <ul class="crumbs__ul">
+                        <li class="crumbsLi">
+                            <a href="" class="crumbsLi__a">Главная</a>
+                        </li>
+                        <li class="crumbsLi">
+                            <a href="" class="crumbsLi__a">Каталог</a>
+                        </li>
+                        <li class="crumbsLi">
+                            <a href="" class="crumbsLi__a">Эластичное кружево</a>
+                        </li>
+                        <li class="crumbsLi">
+                            Темно розовое
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="row">  
+
+                    {% for product_image in products %}
+                        {# Each "contact" is a Contact model object. #}
+                        {{ contact.full_name|upper }}<br />
+                        {% include 'products/productsItem.html' %}
+                    {% endfor %}
+                </div>
+                <div class="pagination">
+                        <span class="step-links">
+                            {% if products.has_previous %}
+                                <a href="?page={{ products.previous_page_number }}">&larr; </a>
+                            {% endif %}
+                    
+                            <span class="current">
+                                страница {{ products.number }} из {{ products.paginator.num_pages }}
+                            </span>
+                    
+                            {% if products.has_next %}
+                                <a href="?page={{ products.next_page_number }}">&rarr;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+{% endblock %}

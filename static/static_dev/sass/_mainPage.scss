@@ -1,0 +1,401 @@
+.mainImage {
+    background: url(../img/header/main2.png) center no-repeat;
+    background-size: cover;
+    min-height: 700px;
+}
+
+.mainBlock {
+    padding-top: 120px;
+    text-align: center;
+
+    &__title {
+        color: #ffffff;
+        font-size: 33px;
+        padding: 10px 0 40px;
+        font-weight: 100;
+    }
+    & a {
+        text-decoration: none;
+    }
+
+    &__button {
+        padding: 6px 25px;
+        width: 22%;
+        background: none;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        border-radius: 1px;
+        font-size: 24px;
+        font-weight: 100;
+        margin: 0 auto 35px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        &:after {
+            border-radius: 4px;
+            position: absolute;
+            content: 'смотреть каталог';
+            padding-top: 6px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1.5s;
+            opacity:0;
+            background: #580638;
+        }
+
+        &:hover:after {
+            opacity: 1;
+            // background-color: #540032;
+            // background: linear-gradient(to top, #A30966 0%, #540032 50%, #A30966 100%);
+        }
+    }
+}
+
+.scrollButton {
+    cursor: pointer;
+    position: relative;
+    animation: opacity_button 3s infinite;
+//     &:after {
+//         content: '';
+//         background: linear-gradient(to top, rgba(165, 135, 165, 0.38) 0%, #a587a5b3 50%, rgba(165, 135, 165, 0.38) 100%);
+//         border-radius: 4px;
+//         width: 13px;
+//         height: 22px;
+//         position: absolute;
+//         left: -7px;
+//         margin: 0 50%;
+//         animation: bg_button 0.9s infinite;
+//     }    
+}
+
+@keyframes opacity_button {
+	0% {
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(12%);
+    }
+    65%{
+        transform: translateY(-1%);
+    }
+    80%{
+        transform: translateY(4%);
+    }
+    95%{
+        transform: translateY(-2%);
+    }           
+    100% {
+        transform: translateY(0%);
+    }  
+}
+
+
+// @keyframes bg_button {
+// 	100% {
+//         transform: translateY(-45%);
+//     }
+//     80%{
+//         transform: translateY(0%);
+//     }
+//     60%{
+//         transform: translateY(60%);
+//     }
+//     40%{
+//         transform: translateY(120%);
+//     }
+//     20%{
+//         transform: translateY(150%);
+//     }           
+//     0% {
+//         transform: translateY(180%);
+//     }  
+// }
+
+.main__bg {
+    background-color: #e8e8e8;
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: '';
+        width: 61%;
+        height: 14%;
+        background: #d9cfd6;
+        position: absolute;
+        bottom: 512px;
+    }
+    &:before {
+        content: '';
+        width: 55%;
+        height: 54%;
+        position: absolute;
+        border-top: 439px solid transparent;
+        border-right: 730px solid #d9cfd6;
+        border-bottom: 599px solid transparent;
+        top: 107px;
+        right: 0;
+    }
+}
+
+.utp {
+    padding: 20px 0;
+    border-bottom: 1px solid #C9C4C4;
+    position: relative;
+}
+
+.utpItem {
+    display: inline-flex;
+    align-items: flex-start;
+
+    &__p {
+        margin-left: 15px;
+        margin-top: 7px;
+        line-height: 22px;
+    }
+}
+
+.newProducts {
+    padding-top: 60px;
+    &__h2 {
+        text-transform: uppercase;
+        color: #540032;
+        font-size: 25px;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            content: "Новинки";
+            position: absolute;
+            color: grey;
+            font-size: 70px;
+            top: -43px;
+            left: -4px;
+            opacity: .2;
+
+        }
+    }
+}
+
+
+.category {
+    @extend .newProducts;
+    &__h2 {
+        @extend .newProducts__h2;
+        text-align: right;
+        &:before {
+            content: "Категории";
+            position: absolute;
+            color: grey;
+            font-size: 70px;
+            top: -43px;
+            right: -4px;
+            opacity: .2;
+        }
+    }
+}
+
+.lace {
+    background-image: url(../img/main/lace.png);
+    background-color: #820333;
+    background-size: cover;
+    height: 290px;
+    position: relative;
+    background-position-y: center;
+    display: block;
+    &__h2 {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 0;
+        color: #820333;
+        font-size: 51px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &:after {
+        content: '';
+        opacity: 0;
+        background: #820333;
+        color: #000000;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: 0.3s;
+    }
+
+    &:before {
+        content: 'перейти';
+        color: #ffffff;
+        top: 43%;
+        z-index: 2;
+        left: 20%;
+        font-size: 27px;
+        position: absolute;
+        border: 2px solid #ffffff;
+        padding: 0px 54px;
+        opacity: 0;
+        transition: 0.3s;
+    }
+    
+    &:hover:after {
+        opacity: .7;
+    }
+
+    &:hover:before {
+        opacity: 1;
+    }
+
+    &:hover .lace__h2 {
+        opacity: 0;
+    }
+    
+}
+
+.furniture {
+    @extend .lace;
+    background-image: url(../img/main/furniture.png);
+    &__h2 {
+        @extend .lace__h2;
+    }
+}
+
+.tape {
+    @extend .lace;
+    background-image: url(../img/main/tape.png);
+    margin-bottom: 30px;
+    height: 180px;
+    &__h2 {
+        @extend .lace__h2;
+        bottom: 10%;
+        font-size: 44px;
+    }
+}
+
+.etc {
+    @extend .lace;
+    background-image: url(../img/main/ect.png);
+    height: 80px;
+    &__h2 {
+        @extend .lace__h2;
+        top: 32%;
+    }
+    &:before {
+        top: 24%;
+    }
+}
+
+.hitProducts {
+    @extend .newProducts;
+    &__h2 {
+        @extend .newProducts__h2;
+        &:before {
+            content: 'Хиты продаж';
+        }
+    }
+}
+
+.reviews {
+    @extend .newProducts;
+    position: relative;
+    z-index: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 105%;
+        bottom: -98px;
+        background-color: #d9cfd6;
+        z-index: -1; 
+    }
+    &__h2 {
+        top: -4px;
+        @extend .category__h2;
+        &:before {
+            content: "отзывы";
+        }
+    } 
+}
+
+.reviews .slick-prev {
+    left: 863px;
+    top: 15px;
+    z-index: 2;
+}
+
+.reviews .slick-next {
+    right: -57px;
+    top: 15px;
+    z-index: 2;
+}
+
+.reviews .slick-prev:before, .reviews .slick-next:before {
+    color: #540032;
+}
+
+.review {
+    z-index: 1;
+    &__title {
+        color: #540032;
+        font-size: 24px;
+    }
+    &__date {
+        color: #8e8b8b;
+        font-size: 17px;
+    }
+    &__text {
+        padding-right: 90px;
+    }
+}
+
+.reviewImg {
+    z-index: 1;
+    &__img {
+        margin-top: 20px;
+    }
+}
+
+.subscription {
+    @extend .newProducts;
+    &__h2 {
+    @extend .category__h2;
+    text-align: center;
+    bottom: -14px;
+        &:before {
+            content: "будь всегда в курсе новостей магазина";
+            font-size: 52px;
+            top: -25px;
+        }
+    }
+}
+
+.subscriptionForm {
+    background: url(../img/main/subscription.jpg) center no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    min-height: 220px;
+    text-align: center;
+    &__input {
+        border: none;
+        padding: 7px 78px 7px 7px;
+        margin-right: -4px;
+        text-transform: uppercase;
+        opacity: .75;
+        font-size: 16px;
+        color: #000000;
+        box-shadow: inset 1px 1px 2px #615555;
+        &_brLeft {
+            border-radius: 4px 0px 0px 4px;
+        }
+    }
+    &__btn {
+        color: #ffffff;
+        background-color: #820333;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        padding: 7px 23px;
+        cursor: pointer;
+    }
+}

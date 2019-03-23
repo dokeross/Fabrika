@@ -1,0 +1,62 @@
+.headDelivery {
+    background: url(../img/delivery/delivery.png) center no-repeat;
+    background-size: cover;
+    padding-top: 140px;
+    padding-bottom: 20px;
+    &__h1 {
+        color: #ffffff;
+        margin: 0;
+        font-weight: 300;
+    }
+}
+
+.imageDelivery {
+    &__img {
+        max-width: 100%;
+    }
+}
+
+.deliveryImg {
+    &__img {
+        margin-top: 30px;
+        max-width: 100%;
+    }
+}
+
+.deliveryPage {
+    &__description {
+        padding-bottom: 30px;
+    }
+}
+
+.deliveryWrap {
+    padding-top: 30px;
+        &__border {
+            width: 75px;
+            height: 12px;
+            background: #820333;
+            margin-bottom: 15px;
+        }
+        &__h2 {
+            font-size: 49px;
+            font-weight: 300;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        &__p {
+            &_italic {
+                font-style: italic;
+                font-weight: bold;
+            }
+            &_a {
+                color: #820333;
+                font-weight: bold;
+            }
+        }
+}
+
+.deliveryPage .orderBtn__button {
+    margin-top: 14px;
+    text-transform: uppercase;
+    min-width: 34%;
+}

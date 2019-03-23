@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- slick -->
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}">
+
+</head>
+  <body>
+    <div class="filter">
+      {% include 'header.html' %}
+        <div class="imageCatalog">
+            <div class="container">
+                <div class="mainCatalog text-center">
+                    <img src="{% static 'img/main/fabrika.png' %}" alt="" class="mainCatalog__img">
+                    <h1 class="mainCatalog__title">магазин кружева и фурнитуры</h1>
+                </div>
+            </div>
+        </div>
+        <main class="main__bg_cl">
+            <div class="container">
+                <div class="row">
+                    {% include 'asideMenu.html' %}
+                    <div class="col contentItem">
+                        <div class="contentItem__h3">{{ product.category }}</div>
+                        <!-- <div class="crumbs">
+                            <ul class="crumbs__ul">
+                                <li class="crumbsLi">
+                                    <a href="" class="crumbsLi__a">Главная</a>
+                                </li>
+                                <li class="crumbsLi">
+                                    <a href="" class="crumbsLi__a">Каталог</a>
+                                </li>
+                                <li class="crumbsLi">
+                                    <a href="" class="crumbsLi__a">{{ request.path }}Эластичное кружево</a>
+                                </li>
+                                <li class="crumbsLi">
+                                    Темно розовое
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-lg-8 imgProductCard"> 
+                                <div class="slider-for">
+                                    {% for image_item in product.productimage_set.all %}
+                                        <div><img src="{{ image_item.image.url }}" alt="" class="advantages__img1"></div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="slider-nav">
+                                    {% for image_item in product.productimage_set.all %}
+                                        <div><img src="{{ image_item.image.url }}" alt="" class="advantages__img2"></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-4 contentProductCard">
+                
+                                <h3 class="contentProductCard__h3">{{ product.name }}</h3>
+                                <p class="contentProductCard__span">Кружево/{{ product.category }}</p>
+                                <p class="contentProductCard__p">цена: <span class="contentProductCard__p_fz">{{ product.price }} P</span>/{{ product.measurement }}</p>
+                                <p class="contentProductCard__p">все представленные товары,находятся в наличии на складе и
+                                могут быть доставлены (отправлены) Вам в ближайшее время <a href="#" class="contentProductCard__p_a">подробнее о доставке в ваш город</a>
+                                </p>
+                                <form class="form_buying_product" class="amount" action="{% url 'basket_adding' %}">{% csrf_token %}
+                                    <!-- <input type="number" name='number' id='number' autofocus class="amount__input"/> -->
+                                    <button type='submit' class="amount__button submit_btn" id=""
+                                    
+                                    data-product_id = "{{ product.id }}"
+                                    data-product_name = "{{ product.name }}"
+                                    data-product_price = "{{ product.price }}"
+                                    data-image = "{% for image_item in order %}{{ image_item.image }}{% endfor %}">положить в корзину</button>
+                                </form>
+                                
+                                <!-- <p class="contentProductCard__p">стоимость заказа<span class="contentProductCard__p_fz"> - 165 P</span></p> -->
+                
+                                <hr class="contentProductCard__hr">
+                
+                                <p class="contentProductCard__p"><span class="contentProductCard__p_bold">Характеристика товара:</span></p>
+                                <p class="contentProductCard__p">{{ product.description }}
+                                </p>
+                                <p class="contentProductCard__p">
+                                Тип: <span class="contentProductCard__p_bold"> {{ product.category }}</span><br>
+                                Ширина: <span class="contentProductCard__p_bold"> {{ product.width }}см</span><br>
+                                Цвет: <span class="contentProductCard__p_bold"> {{ product.color }}</span><br>
+                                Состав: <span class="contentProductCard__p_bold"> {{ product.composition }}</span><br>
+                                Артикул:<span class="contentProductCard__p_bold"> {{ product.article }}</span><br>
+                
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 similarProducts">
+                                <p class="similarProducts__p">С этими товарами часто смотрят</p>
+                                <div class="row">
+                                    {% for product_image in products %}
+                                        {% include 'products/productsItemMin.html' %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-4 reviewsProducts">
+                                <p class="reviewsProducts__p">Мы будем благодарны вам за отзыв:</p>
+                                <div class="reviewsForm">
+                                    <form action="" method="post">{% csrf_token %}
+                                        <input class="reviewsForm__input reviewsForm__input_height" id="id_subject" name="{{ form.comments.name }}" placeholder="что вы думаете об этом товаре">
+                                        <input class="reviewsForm__input" id="id_sender" name="{{ form.name.name }}" placeholder="ваше имя">
+                                        <input class="d-none" id="id_sender" name="article" value="{{ product.article }}">
+                                        <input type="submit" class="reviewsForm__btn" value="оставить отзыв"/>
+                                    </form>
+                                </div>
+                                <div class="reviewsBriefly">
+                                    {% for com_item in product.productcomments_set.all %}
+                                        <div class="col review">
+                                            <div class="review__title">{{ com_item.name }}</div>
+                                            <div class="review__date">{{ com_item.published_date|truncatechars_html:19 }}</div>
+                                            <div class="review__text">{{ com_item.comments }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+{% include 'footer.html' %}
+    </div>
+      {% include 'panelBasket.html' %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+  </body>
+</html>

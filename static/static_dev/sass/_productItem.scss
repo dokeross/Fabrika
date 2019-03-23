@@ -1,0 +1,160 @@
+.productItem {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    padding-top: 15px;
+    margin-bottom: 25px;
+    // &:before {
+    //     content: 'Подробнее';
+    //     position: absolute;
+    //     top: 27%;
+    //     left: 25%;
+    //     font-size: 30px;
+    //     color: #ffffff;
+    //     border-bottom: 2px solid;
+    //     opacity: 0;
+    //     cursor: pointer;
+    // }
+    &__img {
+        width: 100%;
+        height: 200px;
+        &_item {
+            width: 100%;
+        }
+        &_min {
+            height: 180px;
+        }
+    }
+    &__infoItem {
+        position: relative;
+    }
+
+    &__new {
+        position: absolute;
+        top: -1px;
+        left: 0;
+    }
+
+    &:hover .descriptionItem {
+        bottom: 34px;
+    }
+
+    &:hover .hiddenDescriptionItem {
+        display: block!important;
+        bottom: 0;
+    }
+    
+
+    &__moreProduct {
+        position: absolute;
+        color: #ffffff;
+        top: 37%;
+        left:50%;
+        transform:  translate(-50%,-50%);
+        font-size: 31px;
+        font-weight: 100;
+        border-bottom: 2px solid;
+        opacity: 0;
+        transition: .3s;
+        cursor: pointer;
+        &_min {
+            top: 24%;
+            font-size: 26px;
+        }
+    }
+
+    &:hover .productItem__moreProduct {
+            opacity: 1;
+    }
+
+    &_min {
+        margin-bottom: 35px;
+    }
+    
+}
+
+
+.descriptionItem {
+    padding: 0 8px 6px 8px;
+    bottom: 0;
+    background-color: #ffffff;
+    width: 100%;
+    transition: .5s;
+    z-index: 2;
+    position: relative;
+    
+    &__category {
+        display: flex;
+        font-size: 14px;
+        color: #807b7b;
+        margin-bottom: -6px;
+        &_min {
+            font-size: 13px;
+        }
+    }
+
+    &__name {
+        &_min {
+            font-size: 14px;
+        }
+    }
+
+    &__price {
+        bottom: -1px;
+        right: 4px;
+        position: absolute;
+        font-size: 17px;
+        &_min {
+            font-size: 13px;
+            top: 24px;
+        }
+    }
+}
+@keyframes imgLike {
+	0% {transform: scale(1);}
+	25%  {transform: scale(1.1);}
+    50% {transform: scale(1);}
+    75%  {transform: scale(1.1);}
+	100% {transform: scale(1);}
+}
+.hiddenDescriptionItem {
+    z-index: 1;
+    position: absolute;
+    bottom: -36px;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 3px 8px 7px 8px;
+    border-top: 1px solid #e8e3e3;
+    transition: .5s;
+    &__imgLike {
+        &_active {
+            filter: drop-shadow(0 0 0px rgba(134,12,120,1));
+        }
+    }
+    &__imgLike {
+        &_click {
+            animation: imgLike 0.5s;            
+        }
+            }
+    &__countLike {
+        padding-left: 3px;
+        font-size: 18px;
+        color: #540032;
+    }
+    &__button {
+        position: absolute;
+        right: 8px;
+        bottom: 4px;
+        background-color: none;
+        background: none;
+        border-color:#540032;
+        border-radius: 4px;
+        transition: .3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #540032;
+            color: #ffffff;
+        }
+    }
+}

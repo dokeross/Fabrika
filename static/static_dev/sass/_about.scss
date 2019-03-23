@@ -1,0 +1,63 @@
+.bgGrey {
+    background-color: #dddddd;
+}
+
+.logoAbout {
+    padding: 200px 0 110px;
+    text-align: center;
+    z-index: 1;
+    &__img {
+        padding-bottom: 50px;
+        max-width: 100%;
+        
+    }
+}
+
+.mapAbout {
+    text-align: center;
+    &__img {
+        max-width: 100%;
+    }
+    &__p {
+        position: absolute;
+        bottom: 17px;
+        color: #891742;
+        font-size: 18px;
+        font-size: 26px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: 1.2s;
+    }
+}
+
+.mapDescription {
+    text-align: center;
+    
+    &__p {
+        text-align: left;
+        color: #891742;
+        padding: 20px 0 100px;
+        opacity: 0;
+        transition: 1.9s;  
+    }
+    &__img {
+        opacity: 0;
+        transition: 1.9s;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.show {
+    opacity: 1;
+}
+
+.social {
+    text-align: center;
+    padding-bottom: 115px;
+    &__link {
+        text-decoration: none;
+        color: #000000;
+    }
+}

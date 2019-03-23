@@ -1,0 +1,221 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- slick -->
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}">
+
+</head>
+  <body>
+    <div class="filter">
+      {% include 'header.html' %}
+<div class="imageCatalog">
+    <div class="container">
+        <div class="mainCatalog text-center">
+            <img src="{% static 'img/main/fabrika.png' %}" alt="" class="mainCatalog__img">
+            <h1 class="mainCatalog__title">магазин кружева и фурнитуры</h1>
+        </div>
+    </div>
+</div>
+<main class="main__bg_ord">
+    <form action="" class="" method="post">{% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6 orderDetails">
+                <h2 class="orderDetails__title">Детали</h2>
+                <div class="contactDetails">
+                    <div class="contactDetails__title">Контактные данные</div>
+                    <div class="contactDetails__p">мы гарантируем полную конфидициальность ваших данных</div>
+                    <div class="formTwoColums">
+                            <span class="form-error">{{ form.name.errors }}</span>
+                            <input class="formTwoColums__input" id="id_subject" name="{{ form.name.html_name }}" placeholder="Ваше имя" value="{{ request.POST.name }}">
+                            <span class="form-error">{{ form.last_name.errors }}</span>
+                            <input class="formTwoColums__input" id="id_subject" name="{{ form.last_name.html_name }}" placeholder="Ваша фамилия" value="{{ request.POST.last_name }}">
+                            <span class="form-error">{{ form.email.errors }}</span>
+                            <input class="formTwoColums__input" id="id_sender" name="{{ form.email.html_name }}" placeholder="Ваш email" value="{{ request.POST.email }}">
+                            <span class="form-error">{{ form.phone.errors }}</span>
+                            <input class="formTwoColums__input" id="id_sender" name="{{ form.phone.html_name }}" placeholder="Ваш номер телефона" value="{{ request.POST.phone }}">
+                    </div>
+                    <div class="contactDetails__title">Доставка</div>
+                    <div class="contactDetails__p">выберите удобы для вас способ доставки</div>
+                    
+                    <div class="russianPost">
+                        <label class="contactDetails__label"><input id="Rp" type="checkbox" value='1' name="{{ form.check_russia.html_name }}" class="contactDetails__input"><span class="russianPost__span">Доставка почтой России</span></label>
+                        <div class="formFiveColums hid">
+                            <div id="hideRpq">
+                                    <input class="formFiveColums__input formFiveColums__input_index" id="id_subject" name="{{ form.index.html_name }}" placeholder="Индекс">
+                                    <input class="formFiveColums__input formFiveColums__input_city" id="id_subject" name="{{ form.city.html_name }}" placeholder="Ваш город">
+                                    <input class="formFiveColums__input formFiveColums__input_street" id="id_sender" name="{{ form.street.html_name }}" placeholder="Улица">
+                                    <input class="formFiveColums__input formFiveColums__input_house" id="id_sender" name="{{ form.house.html_name }}" placeholder="Дом">
+                                    <input class="formFiveColums__input formFiveColums__input_kv" id="id_sender" name="{{ form.kv.html_name }}" placeholder="Кв.">
+                                    <div class="formFiveColums__p">Ваш заказ будет отправлен в течнении 2х рабочих
+                                        дней после оплаты, после отправим вам на почту придет трех-номер для отслеживания посылки.
+                                        Стоимость отправки регулируется тарифами Почты России и составляет 280 рублей в любой город России.
+                                        Время доставки в среднем 7 календарных дней
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deliveryInTheCity">
+                        <label class="contactDetails__label"><input id="Dc" type="checkbox" value='1' name="{{ form.check_ekb.html_name }}" class="contactDetails__input"><span class="deliveryInTheCity__span">Доставка по Екатеринбургу</span></label>
+                        <div class="formFiveColums hid">
+                            <div id="hideDcq">
+                                    <input class="formFiveColums__input formFiveColums__input_city" id="id_subject" name="{{ form.streetekb.html_name }}" placeholder="Улица">
+                                    <input class="formFiveColums__input formFiveColums__input_street" id="id_subject" name="{{ form.houseekb.html_name }}" placeholder="Дом">
+                                    <input class="formFiveColums__input formFiveColums__input_house" id="id_sender" name="{{ form.kvekb.html_name }}" placeholder="Кв.">
+                                    <input class="formFiveColums__input formFiveColums__input_time" id="id_sender" name="{{ form.time.html_name }}" placeholder="с 9:00 до 22:00">
+                                    <div class="formFiveColums__p">* время доставки согласовывается индивидуально, но мы всегда стараемся подстроиться
+                                        под ваши пожелания и возможности
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup">
+                        <label class="contactDetails__label"><input id="Pi" type="checkbox" name="a2" class="contactDetails__input"><span class="pickup__span">Самовывоз</span></label>
+                        <div class="formFiveColums hid">
+                            <div id="hidePiq">
+                                    <div class="formFiveColums__p">свой товар вы можете забрать с ПН-ПТ по адресу г.Екатеринбург, ул. Амундсена
+                                        д.18, предварительно согласовав время по номеру 8-965-532-05-29
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea class="textarea" rows="4" cols="70" name="{{ form.comments.html_name }}" placeholder="Здесь вы можете оставить свой комментарий к заказу"></textarea>
+                    <div class="contactDetails__title">Оплата</div>
+                    <div class="contactDetails__p">выберите удобный для вас способ оплаты</div>
+                    <div class="paymentCard">
+                        <label><input id="pC" type="checkbox" name="a2" class="payment__input"><span class="paymentCard__span">Оплата на карту сбербанк</span></label>
+                    </div>
+                    <div class="paymentFact">
+                        <label class="paymentFact__label"><input id="pF" type="checkbox" name="a2" class="payment__input"><span class="paymentFact__span">По факту получения</span></label>
+                        <p class="paymentFact__p">*данный вид оплаты не возможен при условии доставки по России и СНГ</p>
+                    </div>
+                    <!-- <div class="otherPayment">
+                        <label><input id="Ps" type="checkbox" name="a2"><span class="otherPayment__span">Оплатить другими платежными системами</span></label>
+                        <p class="otherPayment__p">
+                            после оформления заказа, на указанную вами почту придет электронный<br> счет
+                            с реквизитами, выбранной вами платежной системе
+                        </p>
+                        <div class="paymentSystem">
+                            <label><input id="" type="checkbox" name="a2">
+                                <img src="{% static 'img/order/paymentSystem.png' %}" alt="" class="paymentSystem__img">
+                            </label>
+                            <label><input id="" type="checkbox" name="a2">
+                                <img src="{% static 'img/order/paymentSystem.png' %}" alt="" class="paymentSystem__img">
+                            </label>
+                            <label><input id="" type="checkbox" name="a2">
+                                <img src="{% static 'img/order/paymentSystem.png' %}" alt="" class="paymentSystem__img">
+                            </label>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col orderBasket">
+                {% if products_in_basket %}
+                <h2 class="orderBasket__title">Корзина</h2>
+                <div class="orderBasket__p">Выберите необходимое количество товара</div>
+                <div class="featureBasket">
+                    <div class="row">
+                        <!-- <div class="col-2 featureBasket__item">Позиция</div> -->
+                        <div class="col-4 featureBasket__item">Параметры</div>
+                        <div class="col featureBasket__item">Количество</div>
+                        <div class="col featureBasket__item featureBasket__item_fe">Стоимость</div>
+                    </div>
+                </div>
+                
+                {% for product_in_basket in products_in_basket %}
+                    <div class="orderItem">
+                        <div class="row orderLine">
+                            <div class="col-2 orderPosition">
+                                <img src="{{ product_in_basket.image.url }}" alt="" class="orderPosition__img">
+                            </div>
+                            <div class="col-4 orderCharacteristic">
+                                <span class="orderCharacteristic__title">{{ product_in_basket.product.name }}</span>
+                                <span class="orderCharacteristic__p">Кужево эластичное</span>
+                                <span class="orderCharacteristic__p">К001</span>
+                            </div>
+                            <div class="col orderAmount">
+                                <input type="number"
+                                value="{{ product_in_basket.nmb }}"
+                                name="product_in_basket_{{ product_in_basket.id }}"
+                                autofocus class="orderAmount__input product_in_basket_nmb"/>
+                                <span class="orderAmount__span">{{ product_in_basket.product.measurement }}</span>
+                            </div>
+                            <div class="col orderPrice">
+                                <p class="product_price d-none">
+                                    {{ product_in_basket.price_per_item}}
+                                </p>
+                                <p class="orderPrice__p total_product_in_basket_amount">{{ product_in_basket.total_price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="orderTotal">
+                    <div class="row">
+                        <div class="col orderTotal_item">Доставка: 280р</div>
+                        <div class="col orderTotal_item text-right" id="total_order_amount"></div>            
+                    </div>
+                </div>
+                {% else %}
+                <h3>В вашей корзине нет товаров</h3>
+                {% endif %}
+            </div>
+        </div>
+        <div class="orderBtn text-center">
+            <input type="submit" class="orderBtn__button" value="Отправить заказ"/>
+        </div>
+    </form>
+    </div>
+</main>
+
+
+
+<!-- <form action="{% url 'contact_phone' %}" method="post">
+    {% csrf_token %}
+{#    {% bootstrap_form form %}#}
+    {{ form.non_field_errors }}
+	<div>
+	  <label for="id_subject">Имя:</label>
+	  {{ form.subject.errors }}
+{#	  {{ form.subject }}#}
+      <input class="form-control" id="id_subject" name="name" placeholder="Ваше имя">
+	</div>
+	<div>
+	  <label for="id_sender">Номер телефона:</label>
+	  {{ form.sender.errors }}
+{#	  {{ form.sender }}#}
+      <input class="form-control" id="id_sender" name="phone" placeholder="Ваш номер телефона">
+	</div>
+	<br>
+	<input type="submit" class="btn" value="Отправить сообщение"/>
+</form> -->
+
+
+
+{% include 'footer.html' %}
+</div>
+  {% include 'panelBasket.html' %}
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+</body>

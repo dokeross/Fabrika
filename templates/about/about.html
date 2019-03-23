@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bgGrey">
+
+    <div class="container">
+        <div class="col logoAbout">
+            <img src="/static/img/about/fabrika.png" class="logoAbout__img" alt="">
+            <div class="scrollButton">
+                <img src="{% static 'img/main/scroll.png' %}" alt="" class="scrollButton__img">
+            </div>
+        </div>
+        <div class="col mapAbout">
+            <img src="/static/img/about/mapAbout.png" class="mapAbout__img" alt="">
+            <p class="mapAbout__p">Мы - это более 500 довольных покупателей<br> из разных концов нашей необъятной Родины</p>
+        </div>
+        <div class="col mapDescription">
+            <img src="/static/img/about/package.png" class="mapDescription__img" alt="">
+            <p class="mapDescription__p">Fabrika - это любовь. Любовь к искуству, любовь к творчеству,
+                любовь к людям. Мы искринне верим, что сможем сделать этот мир немного нежнее и красивее.
+                Из наших материалов Вы создаёте настояющие произведения искусства, а значит мы на верном пути.
+                Ваше творчество сближает людей и зажигают огонь в их сердцах, а значит мы уже близки к цели.
+                Мы всегда будем стараться помочь Вам и сделать всё, что бы сотрудничество с нами было максимально
+                комфортным, удобным и выгодным для Вас! Работая исключительно с проверенными производителями
+                кружева и бельевой фурнитуры, мы гарантируем постоянно высокое качество нашей продукции.
+                <br>
+                <br>
+                Вы нас вдохновляете, с любовью #FABRIKA</p>
+        </div>
+        
+        <div class="col social">
+            <a href="https://vk.com/kruzhevo_ekat" class="social__link social__link_vk">Мы в Вконтакте |</a>
+            <a href="https://www.instagram.com/fabrika.ekat" class="social__link">Мы в Instagram</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

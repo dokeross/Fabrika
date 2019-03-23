@@ -1,0 +1,84 @@
+.imgProductCard {
+    &__img {
+        width: 100%;
+    }
+}
+
+.contentProductCard {
+    border-left: 1px solid #ece7e7;
+    &__h3 {
+        margin-bottom: 0;
+    }
+    &__p {
+        font-size: 14px;
+        &_fz {
+            font-size: 17px;
+        }
+        &_a {
+            color: #820333;
+            &:hover {
+                color: #820333;
+            }
+        }
+        &_bold {
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+    }
+
+}
+
+
+.amount {
+    display: inline-flex;
+    margin-bottom: 10px;
+    &__input {
+        width: 30%;
+        box-shadow: inset 1px 1px 4px #e0dcdc;
+        margin-right: 19px;
+        text-align: right;
+        border-radius: 5px;
+        outline: none;
+    }
+    &__button {
+        padding: 0 20px;
+        background-color: #820333;
+        border: #820333;
+        color: #ffffff;
+        border-radius: 4px;
+        font-size: 14px;
+        outline: none;
+        box-shadow: 1px 1px 5px #868484;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+
+button.close {
+    position: absolute;
+    right: 45px;
+    top: 18px;
+    border: 1px solid #820333;
+    border-radius: 50%;
+    padding: 0 5px;
+    color: #820333;
+    cursor: pointer;
+    z-index: 1;
+    outline: none;
+
+}
+.advantages__img1{
+    width: 100%;
+}
+
+.advantages__img2 {
+    height: 97px;
+}
+
+.slider-for {
+    overflow: hidden;
+    margin-bottom: 34px;
+    height: 448px;
+}

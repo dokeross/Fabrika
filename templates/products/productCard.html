@@ -1,0 +1,52 @@
+{% load static %}
+
+<div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7 imgProductCard">
+              <img src="{% static 'img/cold/H1.jpg' %}" alt="" class="imgProductCard__img">
+            </div>
+            <div class="col-sm-5 contentProductCard">
+
+              <h3 class="contentProductCard__h3">Темно розовое</h3>
+              <p class="contentProductCard__span">Кружево/эластичное кружево</p>
+              <p class="contentProductCard__p">цена за метр: <span class="contentProductCard__p_fz">66 P</span></p>
+              <p class="contentProductCard__p">все представленные товары,находтся в наличии на складе и
+                могут быть доставлены (отправлены) Вам в ближайшее время <a href="#" class="contentProductCard__p_a">подробнее о доставке в ваш город</a>
+              </p>
+              <div class="amount">
+                  <input type="number" value="2" autofocus class="amount__input"/>
+                  <button class="amount__button">положить в корзину</button>
+              </div>
+              <p class="contentProductCard__p">стоимость заказа<span class="contentProductCard__p_fz"> - 165 P</span></p>
+
+              <hr class="contentProductCard__hr">
+
+              <p class="contentProductCard__p"><span class="contentProductCard__p_bold">Характеристика товара:</span></p>
+              <p class="contentProductCard__p">Нежное и мягкое, как будто созданное для чувствительного женского тела.
+                Идеально подойдет для бралетов и трусоков-шортиков.
+              </p>
+              <p class="contentProductCard__p">
+                Тип: <span class="contentProductCard__p_bold"> эластичное кружево</span><br>
+                Ширина: <span class="contentProductCard__p_bold"> 22см</span><br>
+                Цвет: <span class="contentProductCard__p_bold"> темно-розовый</span><br>
+                Состав: <span class="contentProductCard__p_bold"> нейлон/спандекс</span><br>
+                Артикул:<span class="contentProductCard__p_bold"> К012</span><br>
+
+              </p>
+            </div>
+          </div>       
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

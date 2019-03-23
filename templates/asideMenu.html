@@ -1,0 +1,76 @@
+{% load static %}
+
+<div class="col-sm-12 col-md-2 asideMenu">
+    <h2 class="asideMenu__title">каталог</h2>
+    <div class="filterCatalog d-md-none">
+        <span class="filterCatalog__show">Показать категории</span>
+        <span class="filterCatalog__hide">Скрыть категории</span>
+        <i class="fa fa-chevron-down filterCatalog__fa aria-hidden="true""></i>
+
+    </div>
+    <div class="smHide d-none d-md-block">
+        <div class="categoryList">
+            <a href="{% url 'kruzhevo' %}" class="categoryList__title">Кружево</a>
+            <ul class="categoryList__ul">
+                <li class="categoryList__li">
+                    <a href="{% url 'elastichnoe' %}">Эластичное</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'na_setke' %}">На сетке</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 's_resnichkami' %}">С ресничками</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'polotno' %}">Полотно</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'shantili' %}">Шантильи</a>
+                </li>
+            </ul>
+        </div>
+        <div class="categoryList">
+            <a href="{% url 'elastichnaja_tesma' %}" class="categoryList__title">Эластичная тесьма</a>
+            <ul class="categoryList__ul">
+                <li class="categoryList__li">
+                    <a href="{% url 'breteli' %}">Бретели</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'kosaja_bejka' %}">Косая бейка</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'tonnelnaja_lenta' %}">Тоннельная лента</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'believye_rezinki' %}">Бельевые резинки</a>
+                </li>
+            </ul>
+        </div>
+        <div class="categoryList">
+            <a href="{% url 'furnitura' %}" class="categoryList__title">Фурнитура</a>
+            <ul class="categoryList__ul">
+                <li class="categoryList__li">
+                    <a href="{% url 'krjuchki' %}">Кольца, крючки, регуляторы</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'zastezhki' %}">Застежки</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'kostochki' %}">Косточки</a>
+                </li>
+                <li class="categoryList__li">
+                    <a href="{% url 'believoj_paralon' %}">Бельевой паралон</a>
+                </li>
+            </ul>
+        </div>
+        <div class="categoryList">
+            <a href="{% url 'prochee' %}" class="categoryList__title">Прочее</a>
+            <ul class="categoryList__ul">
+                <li class="categoryList__li">
+                    <a href="{% url 'dekorativnye_elementy' %}">Декоративные элементы</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>

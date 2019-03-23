@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- slick -->
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}">
+
+</head>
+  <body>
+    <div class="filter">
+      {% include 'header.html' %}
+
+        <div class="block_contacts">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="crumbs">
+                            <ul class="crumbs__ul">
+                                <li class="crumbsLi crumbsLi__contacts">
+                                    <a href="" class="crumbsLi__a crumbsLi__a_contacts">Главная</a>
+                                </li>
+                                <li class="crumbsLi">
+                                    <a href="" class="crumbsLi__a crumbsLi__a_contacts">- Контакты</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-3 offset-lg-1">
+                        <div class="contactInfo">
+                            <p class="contactInfo__p contactInfo__p_grey">+7 (965) 532-05-29</p>
+                            <p class="contactInfo__p contactInfo__p_time">10:00 - 20:00</p>
+                            <p class="contactInfo__p contactInfo__p_grey">ежедневно</p>
+                            <p class="contactInfo__p">info@fabrikastore.ru</p>
+                        </div>
+                    </div>
+                    <div class="col-12 offset-lg-2 col-lg-5">
+                        <div class="formContacts">
+                            <form action="{% url 'contacts_page' %}" method="post"> {% csrf_token %}
+                                <input type="text" name="name" class="formContacts__text" placeholder="Что вы хотели бы нам сказать">
+                                <input type="submit" placeholder="отправить" class="orderBtn__button">
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col">
+                        <p class="ekb">Екатеринбург</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        {% include 'footer.html' %}
+    </div>
+      {% include 'panelBasket.html' %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+  </body>
+</html>

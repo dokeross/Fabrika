@@ -1,0 +1,43 @@
+{% load static %}
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light container">
+        <span class="navbar-number">+7 (965) 532-05-29</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="col-sm-offset-2 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'catalog' %}">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'delivery' %}">Оплата и доставка</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacts_page' %}">Контакты</a>
+                </li>
+            
+            </ul>
+            <img src="{% static 'img/header/basket.png' %}" alt="" class="nav__img basket">
+            
+            <p class="my-2 my-lg-0 nav__p">
+            В корзине <span class="nav__p_span basket" id="basket_total_nmb">
+                {% if products_total_nmb %}
+                    {{ products_total_nmb }}
+                {% else %}
+                    0
+                {% endif %}    
+            </span> товар(а) 
+            <!-- <br> на сумму <span class="nav__p_span">1456 р </span> -->
+            </p>
+        </div>
+    </nav>
+</header>
+

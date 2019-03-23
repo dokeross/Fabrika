@@ -1,0 +1,61 @@
+.block_contacts {
+    background: url(../img/contacts/background_contacts.png) center no-repeat;
+    background-position-y: -56px;
+    background-size: cover;
+    min-height: 770px;
+    padding-top: 145px;
+}
+
+.crumbsLi__a_contacts {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    &:after {
+        background: none;
+        
+    }
+}
+
+.crumbsLi__contacts {
+    margin-right: 0;
+}
+
+.contactInfo {
+    
+    &__p {
+        color: #ffffff;
+        font-size: 22px;
+        margin: 0;
+        &_grey {
+            
+            color: #ffffffa8;
+            text-transform: uppercase;
+        }
+
+
+    }
+}
+
+.formContacts {
+    background: #ffffffad;
+    padding: 3px 0;
+    border-radius: 4px;
+    margin-top: 7px;
+    &__text {
+        width: 70%;
+        padding-left: 10px;
+        background: none;
+        border: none;
+    }
+}
+
+.formContacts .orderBtn__button {
+    padding: 4px 23px;
+}
+
+.ekb {
+    color: #ffffff;
+    font-size: 95px;
+    font-weight: bold;
+    margin-left: -6px;
+}

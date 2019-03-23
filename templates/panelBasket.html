@@ -1,0 +1,64 @@
+{% load static %}
+<form class="form_buying_product" class="" action="{% url 'basket_adding' %}">{% csrf_token %}
+<div class="panelBasket">
+    <h3 class="panelBasket__h3">Ваша Корзина</h3>
+    <div class="basket basketX">x</div>
+    <ul class="mainPanel">
+        {% if products_in_basket %}
+        {% for product_in_basket in products_in_basket %}
+        <li class="basketItem row">
+            <div class="col-4 orderPosition">
+                
+                <span class="orderCharacteristic__title">{{ product_in_basket.product.name }}</span>
+                <img src="{{ product_in_basket.image.url }}" alt="" class="orderPosition__img">
+            </div>
+            <div class="col-3 orderCharacteristic">
+                <span class="orderCharacteristic__p">{{ product_in_basket.product.category }}</span>
+                <span class="orderCharacteristic__p">{{ product_in_basket.product.article }}</span>
+            </div>
+            <div class="col orderPrice">
+                <img src="{% static 'img/basketMin.png' %}" alt="" class="basketMin" data-product_id="{{product_in_basket.id}}"  data-image="{{ product_in_basket.image }}">
+                <p class="orderPrice__p">{{ product_in_basket.product.price }} р <br> <span class="orderPrice__p_min">за 1{{ product_in_basket.product.measurement }}</span></p>
+            </div>
+        </li>
+        {% endfor %}
+        {% else %}
+        <h3>В вашей корзине нет товаров</h3>
+        {% endif %}
+    </ul>
+    
+</form>
+    <div class="itogBasket">
+        <div class="row">
+            <!-- <div class="col paymentBasket">
+                <p class="paymentBasket__title">К оплате</p>
+                <p class="paymentBasket__p">без учета доставки</p>
+            </div> -->
+            <div class="col amountBasket">
+                <p class="amountBasket__p">Количество товара указывается при оформлении заказа</p>
+            </div>
+        </div>
+    </div>
+    <div class="orderBtn text-center">
+        <a class="orderBtn__a" href="{% url 'order' %}">
+            <span class="orderBtn__button">Оформить заказ</span>
+        </a>
+    </div>
+</div>
+<!-- <div class="row">
+        <div class="col-3 orderPosition">
+            <img src="{% static 'img/productItem/testPrduct.jpg' %}" alt="" class="orderPosition__img">
+        </div>
+        <div class="col-5 orderCharacteristic">
+            <span class="orderCharacteristic__title">Темно-розовое</span>
+            <span class="orderCharacteristic__p">Кужево эластичное</span>
+            <span class="orderCharacteristic__p">К001</span>
+            <div class="orderAmount">
+                <input type="number" value="2" autofocus class="orderAmount__input"/>
+            </div>
+        </div>
+        <div class="col orderPrice">
+            <img src="{% static 'img/basketMin.png' %}" alt="" class="basketMin">
+            <p class="orderPrice__p">250 р</p>
+        </div>
+    </div> -->

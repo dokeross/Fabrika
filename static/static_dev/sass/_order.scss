@@ -1,0 +1,253 @@
+.main__bg_ord {
+    @extend .main__bg_cl;
+    padding-bottom: 100px;
+    &:after {
+        height: 64%;
+    }
+    &:before {
+        bottom: -53%;
+    }
+}
+.orderBtn {
+    position: relative;
+    z-index: 1;
+    &__button {
+        @extend .subscriptionForm__btn;
+        border-radius: 4px;
+    }
+    &__a {
+        &:hover {
+            text-decoration: none;
+        }
+        
+    }
+}
+
+
+.orderDetails {
+    z-index: 1;
+    &__title {
+        @extend .asideMenu__title
+    }
+}
+
+.contactDetails {
+    &__title {
+        font-weight: bold;
+        font-size: 18px;
+        color: #540032;
+    }
+    &__p {
+        padding-bottom: 10px;
+        color: #5d5c5c;
+    }
+}
+
+.formTwoColums {
+    &__input {
+        @extend .amount__input;
+        width: 46%;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        text-align: left;
+    }
+}
+
+.russianPost {
+    &__span {
+        color: #820333;
+        padding-left: 5px;
+    }
+}
+
+.deliveryInTheCity {
+    &__span {
+        @extend .russianPost__span;
+    }
+}
+
+.pickup {
+    &__span {
+        @extend .russianPost__span;
+    }
+}
+
+.formFiveColums {
+    &__input {
+        @extend .formTwoColums__input;
+        margin-right: 10px;
+        &_index {
+            width: 15%
+        }
+        &_city {
+            width: 30%;
+        }
+        &_street {
+            width: 19%;
+        }
+        &_house {
+            width: 11%;
+        }
+        &_kv {
+            width: 11%;
+        }
+
+        &_time {
+            width: 28%;
+        }
+    }
+    &__p {
+        color: #5d5c5c;
+        font-size: 14px;
+        padding-bottom: 12px;
+    }
+}
+
+#hideRp,
+#hideDc,
+#hidePi {
+    display: none;
+}
+
+.textarea {
+    color: #5d5c5c;
+    padding: 3px 6px;
+    margin-bottom: 20px;
+}
+
+.paymentCard {
+    &__span {
+        @extend .russianPost__span;
+    }
+}
+
+.paymentFact {
+    &__span {
+        @extend .russianPost__span;
+    }
+    &__p {
+        line-height: 0;
+        font-size: 12px;
+        margin-top: -4px;
+    }
+    &__error {
+        opacity: .3;
+        
+    }
+}
+
+.otherPayment {
+    &__span {
+        @extend .russianPost__span;
+    }
+    &__p {
+        color: #5d5c5c;
+        font-size: 12px;
+        line-height: 1;
+    }
+}
+
+.paymentSystem {
+    padding-left: 25px;
+    display: none;
+    &__img {
+        margin: 0 20px 0 8px;
+    }
+}
+
+
+
+.orderBasket {
+    z-index: 1;
+    margin-bottom: 30px;
+    border-left: 1px solid #c3c2c2;
+    &__title {
+        @extend .orderDetails__title;
+    }
+    &__p {
+        @extend .contactDetails__title;
+    }
+}
+
+
+.show {
+    display: block;
+}
+
+.hid {
+    display: none;
+}
+
+.orderLine {
+    margin-top: 23px;
+}
+
+.featureBasket {
+    padding-top: 20px;
+    &__item {
+        font-size: 11px;
+        color: #5d5c5c;
+        &_fe {
+            text-align: right;
+        }
+    }
+}
+
+.orderPosition {
+    overflow: hidden;
+    line-height: 20px;
+    margin: auto;
+    &__img {
+        height: 70px;
+        border-radius: 5px;
+        margin: 11px 0;
+    }
+}
+
+.orderCharacteristic {
+    line-height: 14px;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__p {
+        font-size: 12px;
+        color:#5d5c5c;
+    }
+}
+
+.orderAmount {
+    display: flex;
+    align-items: center;
+    &__input {
+        @extend .amount__input;
+        margin-right: 0;
+        width: 90%;
+    }
+    &__span {
+        margin-left: 7px;
+    }
+}
+
+.orderPrice {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &__p {
+        margin: 0;
+        font-size: 18px;
+        &_min {
+            font-size: 14px;
+        }
+    }
+}
+
+.orderTotal {
+    padding-top: 15px;
+    color: #540032;
+    font-weight: 600;
+    font-size: 18px;
+}

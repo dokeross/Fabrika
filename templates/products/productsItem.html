@@ -1,0 +1,44 @@
+{% load static %}
+<div class="col-10 offset-1 col-sm-6 offset-sm-0 col-lg-3 productItem">
+    <a href="{% url 'product' product_image.product.id %}">
+        <div class="productItem__img">
+            <img src="{{ product_image.image.url }}" alt="" class="productItem__img_item">
+        </div>
+        
+        <div class="productItem__moreProduct">Подробнее</div>
+        {% if product_image.product.new_items %}
+            <div class="productItem__new">
+                <img src="{% static 'img/productItem/newProduct.png' %}" alt="">
+            </div>
+        {% endif %}
+        
+    </a>
+    <div class="productItem__infoItem">
+        <div class="descriptionItem">
+            <span class="descriptionItem__name">{{ product_image.product.name }}</span>
+            <span class="descriptionItem__category">{{ product_image.product.category }}</span>
+            <span class="descriptionItem__price">{{ product_image.product.price }} р/{{ product_image.product.measurement }}</span>
+        </div>
+        <div class="hiddenDescriptionItem">{% csrf_token %} 
+            <img src="{% static 'img/productItem/imgLike.png' %}" alt=""
+            
+            class="hiddenDescriptionItem__imgLike">
+            <span class="hiddenDescriptionItem__countLike" data-urlproducts="{{ request.path }}">{{ product_image.product.like }}</span>
+            <span class="d-none hiddenDescriptionItem__likeTrue">{{ product_image.product.likeTrue }}</span>
+            <span class="d-none hiddenDescriptionItem__id">{{ product_image.product.id }}</span>
+        
+            <input type="number" name='number' id='number' value="0" autofocus class="d-none"/>
+            <form class="form_buying_product" class="" action="{% url 'basket_adding' %}">{% csrf_token %}
+            <button type='submit' class="hiddenDescriptionItem__button submit_btn" id=""
+            data-product_id = "{{ product_image.product.id }}"
+            data-product_name = "{{ product_image.product.name }}"
+            data-image = "{{ product_image.image }}"
+            >В корзину</button>
+            </form>
+        </div>
+         
+    </div>
+    
+    <!-- <div class="productItem__moreProduct" data-toggle="modal" data-target="#modal-1">Подробнее</div> -->
+</div>
+{% include 'products/productCard.html' %}

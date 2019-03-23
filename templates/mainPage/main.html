@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="mainImage">
+    <div class="container">
+        <div class="mainBlock">
+            <img src="{% static 'img/main/fabrika.png' %}" alt="" class="mainBlock__img">
+            <h1 class="mainBlock__title">магазин кружева и фурнитуры</h1>
+            <a href="{% url 'catalog' %}">
+                <div class="mainBlock__button">смотреть каталог</div>
+            </a>
+            <div class="scrollButton">
+                <img src="{% static 'img/main/scroll.png' %}" alt="" class="scrollButton__img">
+            </div>
+        </div>
+    </div>
+</section>
+<main class="main__bg">
+    <section class="utp">
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-6 col-lg-3 utpItem">
+                    <img src="{% static 'img/utp/avia.png' %}" alt="" class="utpItem__img">
+                    <p class="utpItem__p">Доставка по всему <br> миру</p>
+                </div>
+                <div class="col col-md-6 col-lg-3 utpItem">
+                    <img src="{% static 'img/utp/avto.png' %}" alt="" class="utpItem__img">
+                    <p class="utpItem__p">Отслеживание <br> посылки</p>
+                </div>
+                <div class="col col-md-6 col-lg-3 utpItem">
+                    <img src="{% static 'img/utp/dostavka.png' %}" alt="" class="utpItem__img">
+                    <p class="utpItem__p">Бесплатная доставка по Екатеринбургу</p>
+                </div>
+                <div class="col col-md-6 col-lg-3 utpItem">
+                    <img src="{% static 'img/utp/shit.png' %}" alt="" class="utpItem__img">
+                    <p class="utpItem__p">Гарантия качества продукции</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newProducts">
+        <div class="container">
+            <h2 class="newProducts__h2">новые поступления</h2>
+            <div class="row">
+                {% for product_image in new_items %}
+                    {% include 'products/productsItem.html' %}
+                {% endfor %}
+            
+            </div>
+        </div>
+    </section>
+    <section class="category">
+        <div class="container">
+            <h2 class="category__h2">выберите категорию</h2>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 itemsCategory">
+                    <a href="{% url 'kruzhevo' %}" class="lace">
+                        <h2 class="lace__h2">кружево</h2>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-4 itemsCategory">
+                    <a href="{% url 'furnitura' %}" class="furniture">
+                        <h2 class="furniture__h2">фурнитура</h2>
+                    </a>
+                </div>
+                
+                <div class="col-lg-4 d-none d-lg-block">
+                    <a href="{% url 'elastichnaja_tesma' %}" class="tape">
+                        <h2 class="tape__h2">эластичная тесьма</h2>
+                    </a>
+                    <a href="{% url 'prochee' %}" class="etc">
+                        <h2 class="etc__h2">прочее</h2>
+                    </a>
+                </div>
+                <div class="col-sm-6 d-lg-none itemsCategory">
+                    <a href="{% url 'elastichnaja_tesma' %}" class="tape">
+                        <h2 class="tape__h2">эластичная тесьма</h2>
+                    </a>
+                </div>
+                <div class="col-sm-6 d-lg-none itemsCategory">
+                    <a href="{% url 'prochee' %}" class="etc">
+                        <h2 class="etc__h2">прочее</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hitProducts">
+        <div class="container">
+            <h2 class="hitProducts__h2">популярные товары</h2>
+            <div class="row">
+                {% for product_image in hit_items %}
+                    {% include 'products/productsItem.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <div class="container">
+            <h2 class="reviews__h2">ваше мнение о нас</h2>
+            <div class="row">
+                <div class="col-9 responsive">
+                    {% for review in reviews %}
+                        {% include 'mainPage/reviews.html' %}
+                    {% endfor %}
+                </div>
+                <div class="col-sm-3 text-right reviewImg">
+                    <img src="{% static 'img/main/review.png' %}" alt="" class="reviewImg__img">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="subscription">
+        <h2 class="subscription__h2">Подпишись на новости</h2>
+        <div class="subscriptionForm">
+            <form action="" method="post">{% csrf_token %}
+                <input class="subscriptionForm__input subscriptionForm__input_brLeft" id="id_subject" name="{{ form.name.name }}" placeholder="Ваше имя">
+                <input class="subscriptionForm__input" id="id_sender" name="{{ form.email.name }}" placeholder="Ваш email">
+                <input type="submit" class="subscriptionForm__btn" value="подписаться"/>
+            </form>
+        </div>
+    </section>
+</main>
+  
+{% endblock %}
